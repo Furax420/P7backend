@@ -12,7 +12,7 @@ function BookInfo({ book }) {
       <p className={styles.Genre}>{book.genre}</p>
       <div className={styles.Rating}>
         <div>{displayStars(book.averageRating)}</div>
-        <p>{`${book.averageRating}/5`}</p>
+        <p>{`${book.averageRating.toFixed(1)}/5`}</p>
       </div>
     </div>
   );
