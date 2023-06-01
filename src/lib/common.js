@@ -13,6 +13,7 @@ function formatBooks(bookArray) {
 export function storeInLocalStorage(token, userId) {
   localStorage.setItem('token', token);
   localStorage.setItem('userId', userId);
+  console.log(token);
 }
 
 export function getFromLocalStorage(item) {
@@ -108,7 +109,8 @@ export async function rateBook(id, userId, rating) {
     book.id = book._id;
     return book;
   } catch (e) {
-    console.error(e);
+    console.error(`Corps de la réponse : ${JSON.stringify(e.response.data)}`);
+
     return e.message;
   }
 }
