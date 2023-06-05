@@ -98,13 +98,11 @@ exports.modifyBook = (req, res, next) => {
               return res.status(500).json({ error: "Une erreur s'est produite lors de la suppression de l'image." });
             }
 
-            // Mettre à jour le livre avec les nouvelles informations
             Book.updateOne({ _id: req.params.id }, { ...bookObject, _id: req.params.id})
               .then(() => res.status(200).json({message : 'Livre modifié!'}))
               .catch(error => res.status(400).json({ error }));
           });
         } else {
-          // Si aucune nouvelle image n'a été téléchargée, mettre à jour le livre normalement
           Book.updateOne({ _id: req.params.id }, { ...bookObject, _id: req.params.id})
             .then(() => res.status(200).json({message : 'Livre modifié!'}))
             .catch(error => res.status(400).json({ error }));
